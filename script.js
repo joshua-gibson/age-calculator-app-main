@@ -1,7 +1,4 @@
 const fetchBtn = document.querySelector(".calc_btn");
-const day = document.getElementById("day").value;
-const month = document.getElementById("month").value;
-const year = document.getElementById("year").value;
 
 function monthDiff(d1, d2) {
   var months;
@@ -62,7 +59,12 @@ function getDateDifferences(day, month, year) {
 }
 
 fetchBtn.addEventListener("click", () => {
+  console.log("clicked");
+  const day = document.getElementById("day").value;
+  const month = document.getElementById("month").value;
+  const year = document.getElementById("year").value;
   const dateDifferences = getDateDifferences(day, month, year);
+  console.log(dateDifferences);
   document.getElementById("years").innerHTML = dateDifferences.yearsSince;
   document.getElementById("years-text").innerHTML =
     dateDifferences.yearsSinceText;
