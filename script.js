@@ -1,8 +1,7 @@
-function silly() {
-  console.log("The silly function is being executed!");
-
-  return "Hello, world!";
-}
+const fetchBtn = document.querySelector(".calc_btn");
+const day = document.getElementById("day").value;
+const month = document.getElementById("month").value;
+const year = document.getElementById("year").value;
 
 function subtractYears(date, years) {
   date.setFullYear(date.getFullYear() - years);
@@ -22,4 +21,8 @@ function myFunction(day, month, year) {
   return age;
 }
 
-export { myFunction, subtractYears, silly };
+fetchBtn.addEventListener("click", () => {
+  myFunction(day, month, year);
+});
+
+export { subtractYears };

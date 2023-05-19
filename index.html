@@ -35,27 +35,11 @@
           min="1"
           max="10000"
         />
-        <button onclick="handleClick()">Try it</button>
+        <button class="calc_btn">Try it</button>
         <p id="demo"></p>
-        <script type="module">
-          import { myFunction } from "./script.js";
-          window.myFunction = myFunction;
-        </script>
-        <script>
-          function handleClick() {
-            const day = document.getElementById("day").value;
-            const month = document.getElementById("month").value;
-            const year = document.getElementById("year").value;
-            document.getElementById("demo").innerHTML = myFunction(
-              day,
-              month,
-              year
-            );
-          }
-        </script>
       </div>
     </main>
-
+    <script type="module" src="/script.js"></script>
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
