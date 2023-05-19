@@ -51,12 +51,27 @@ function getDateDifferences(day, month, year) {
   // how many days between dates
   const daysSince = daysDiff(inputDate, removeMonthsDate);
 
-  return { yearsSince, monthsSince, daysSince };
+  return {
+    yearsSince,
+    yearsSinceText: yearsSince === 1 ? "year" : "years",
+    monthsSince,
+    monthsSinceText: monthsSince === 1 ? "month" : "months",
+    daysSince,
+    daysSinceText: daysSince === 1 ? "day" : "days",
+  };
 }
 
 fetchBtn.addEventListener("click", () => {
   const dateDifferences = getDateDifferences(day, month, year);
   document.getElementById("years").innerHTML = dateDifferences.yearsSince;
+  document.getElementById("years-text").innerHTML =
+    dateDifferences.yearsSinceText;
+
   document.getElementById("months").innerHTML = dateDifferences.monthsSince;
+  document.getElementById("months-text").innerHTML =
+    dateDifferences.monthsSinceText;
+
   document.getElementById("days").innerHTML = dateDifferences.daysSince;
+  document.getElementById("days-text").innerHTML =
+    dateDifferences.daysSinceText;
 });
