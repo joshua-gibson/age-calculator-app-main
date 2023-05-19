@@ -1,33 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="styles.css">
-  <title>Frontend Mentor | Age calculator app</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="javascript" href="script.js" />
+    <title>Frontend Mentor | Age calculator app</title>
+  </head>
 
-</head>
-<body>
-  <main>
+  <body>
+    <main>
+      <div>
+        <input type="day" id="day" name="day" value="DD" min="1" max="31" />
+        <input
+          type="month"
+          id="month"
+          name="month"
+          value="MM"
+          min="1"
+          max="12"
+        />
+        <input
+          type="year"
+          id="year"
+          name="year"
+          value="YYYY"
+          min="1"
+          max="10000"
+        />
+        <button onclick="handleClick()">Try it</button>
+        <p id="demo"></p>
+        <script type="module">
+          import { myFunction } from "./script.js";
+          window.myFunction = myFunction;
+        </script>
+        <script>
+          function handleClick() {
+            const day = document.getElementById("day").value;
+            const month = document.getElementById("month").value;
+            const year = document.getElementById("year").value;
+            document.getElementById("demo").innerHTML = myFunction(
+              day,
+              month,
+              year
+            );
+          }
+        </script>
+      </div>
+    </main>
 
-  Day
-  DD
-
-  Month
-  MM
-
-  Year
-  YYYY
-
-  -- years
-  -- months
-  -- days
-</main>
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Josh Gibson</a>.
+    </div>
+  </body>
 </html>
