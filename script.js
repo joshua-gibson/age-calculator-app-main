@@ -32,14 +32,14 @@ function errorMsg(day, month, year) {
     yearMsg = "Please enter a valid year";
   }
   if (parseInt(year) > currYear) {
-    yearMsg = "Year must be in the past";
+    yearMsg = "Must be in the past";
   }
   // error msg if the month is not valid or in the future
   if (isNaN(parseInt(month)) || parseInt(month) + 1 <= 0) {
     monthMsg = "Please enter a valid month";
   }
   if (parseInt(year) === currYear && parseInt(month) > currMonth) {
-    monthMsg = "Month must be in the past";
+    monthMsg = "Must be in the past";
   }
   // combine the day, month and year into a date
   const providedDate = new Date(year, month, day, 0, 0, 0, 0);
@@ -59,7 +59,7 @@ function errorMsg(day, month, year) {
     parseInt(month) === currMonth &&
     parseInt(day) > currDay
   ) {
-    dayMsg = "Day must be in the past";
+    dayMsg = "Must be in the past";
   }
 
   return { yearMsg, monthMsg, dayMsg };
@@ -67,6 +67,24 @@ function errorMsg(day, month, year) {
 
 function getDateDifferences(day, month, year) {
   const errors = errorMsg(day, month, year);
+
+  if (
+    errors.dayMsg.length > 0 ||
+    errors.monthMsg.length > 0 ||
+    errors.yearMsg.length > 0
+  ) {
+    return {
+      yearError: errors.yearMsg,
+      monthError: errors.monthMsg,
+      dayError: errors.dayMsg,
+      yearsSince: "--",
+      yearsSinceText: "years",
+      monthsSince: "--",
+      monthsSinceText: "months",
+      daysSince: "--",
+      daysSinceText: "days",
+    };
+  }
 
   const inputDate = new Date(day + "/" + month + "/" + year);
 

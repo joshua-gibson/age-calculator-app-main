@@ -18,7 +18,7 @@
     margin: 0;
     font-family: "Outfit", sans-serif;
     font-size: 15px;
-    background-color: var(--light-grey);
+    background-color: var(--off-white);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,12 +31,25 @@
 
   .card {
     background-color: var(--white);
-    border-radius: 5px;
+    border-radius: 15px 15px 50px 15px ;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    max-width: 300px;
+    max-width: 500px;
     padding: 1.5rem;
     width: 100%;
+  }
+
+  .input-fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+padding-bottom: 3rem;
+  }
+  .output-block {
+    display: flex;
+    flex-direction: row;
+
+padding-bottom: 3rem;
   }
