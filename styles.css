@@ -9,9 +9,34 @@
     --off-black: hsl(0, 0%, 8%);
   }
   
-  .attribution { font-size: 11px; text-align: center; }
-  .attribution a { color: hsl(228, 45%, 44%); }
+  .header-footer { font-size: 11px; text-align: center; min-height:20px;}
+  .header-footer a { color: hsl(228, 45%, 44%); }
 
   body {
     font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Outfit", sans-serif;
+    font-size: 15px;
+    background-color: var(--light-grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  main {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card {
+    background-color: var(--white);
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 300px;
+    padding: 1.5rem;
+    width: 100%;
   }

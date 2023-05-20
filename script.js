@@ -101,8 +101,6 @@ function getDateDifferences(day, month, year) {
   // how many days between dates
   const daysSince = daysDiff(inputDate, removeMonthsDate);
 
-  // error trapping
-
   return {
     yearError: errors.yearMsg,
     monthError: errors.monthMsg,
