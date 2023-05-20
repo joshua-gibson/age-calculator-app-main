@@ -1,4 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+
+
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('./assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-ExtraBoldItalic';
+  src: url('./assets/fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: bolder;
+  font-style: italic;
+}
+
 :root {
     --purple: hsl(259, 100%, 65%);
     --light-red: hsl(0, 100%, 67%);
@@ -13,10 +29,9 @@
   .header-footer a { color: hsl(228, 45%, 44%); }
 
   body {
-    font-family: 'Outfit', sans-serif;
     min-height: 100vh;
     margin: 0;
-    font-family: "Outfit", sans-serif;
+    font-family: "Poppins-Regular", sans-serif;
     font-size: 15px;
     background-color: var(--off-white);
     display: flex;
@@ -31,7 +46,7 @@
 
   .card {
     background-color: var(--white);
-    border-radius: 15px 15px 50px 15px ;
+    border-radius: 20px 20px 100px 20px ;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -45,11 +60,36 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-padding-bottom: 3rem;
+padding-bottom: 2rem;
   }
+  .field-block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .field-block p {
+margin: 0;
+  }
+
   .output-block {
     display: flex;
     flex-direction: row;
 
-padding-bottom: 3rem;
+  }
+
+  .error-text {
+    font-size: 12px;
+    color: var(--light-red);
+  }
+
+  .numeric-output {
+    color: var(--purple);
+    padding-right: 0.5rem;
+
+  }
+  .output {
+    font-size: 32px;
+    font-family: "Poppins-ExtraBoldItalic", sans-serif;
+    font-weight: 800;
+    margin: 0;
   }

@@ -23,7 +23,7 @@
           <div class="field-block">
             <p>DAY</p>
             <input type="day" id="day" name="day" value="DD" min="1" max="31" />
-            <p id="days-error"></p>
+            <p id="days-error" class="error-text">&nbsp;</p>
           </div>
           <div class="field-block">
             <p>MONTH</p>
@@ -35,7 +35,7 @@
               min="1"
               max="12"
             />
-            <p id="months-error"></p>
+            <p id="months-error" class="error-text">&nbsp;</p>
           </div>
           <div class="field-block">
             <p>YEAR</p>
@@ -47,21 +47,21 @@
               min="1"
               max="10000"
             />
-            <p id="years-error"></p>
+            <p id="years-error" class="error-text">&nbsp;</p>
           </div>
         </div>
         <button class="calc_btn">Try it</button>
         <div class="output-block">
-          <p id="years"></p>
-          <p id="years-text"></p>
+          <p id="days" class="output numeric-output">--</p>
+          <p id="days-text" class="output">days</p>
         </div>
         <div class="output-block">
-          <p id="months"></p>
-          <p id="months-text"></p>
+          <p id="months" class="output numeric-output">--</p>
+          <p id="months-text" class="output">months</p>
         </div>
         <div class="output-block">
-          <p id="days"></p>
-          <p id="days-text"></p>
+          <p id="years" class="output numeric-output">--</p>
+          <p id="years-text" class="output">years</p>
         </div>
       </div>
     </main>
