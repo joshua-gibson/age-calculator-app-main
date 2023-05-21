@@ -142,7 +142,6 @@ fetchBtn.addEventListener("click", () => {
   const month = parseInt(document.getElementById("month").value) - 1;
   const year = document.getElementById("year").value;
   const dateDifferences = getDateDifferences(day, month, year);
-  console.log(dateDifferences);
 
   if (dateDifferences.dayMsg.length > 0) {
     document.getElementById("day-title").classList.add("red-text");
