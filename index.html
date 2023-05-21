@@ -18,73 +18,75 @@
   <body>
     <div class="header-footer"></div>
     <main>
-      <div class="card">
-        <div class="input-fields">
-          <div class="field-block">
-            <label for="day" id="day-title">DAY</label>
-            <input
-              type="day"
-              id="day"
-              name="day"
-              placeholder="DD"
-              min="1"
-              max="31"
-            />
-            <p id="days-error" class="error-text">&nbsp;</p>
-          </div>
-          <div class="field-block">
-            <label for="month" id="month-title">MONTH</label>
-            <input
-              type="month"
-              id="month"
-              name="month"
-              placeholder="MM"
-              min="1"
-              max="12"
-            />
-            <p id="months-error" class="error-text">&nbsp;</p>
-          </div>
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="input-fields">
+            <div class="field-block">
+              <label for="day" id="day-title">DAY</label>
+              <input
+                type="text"
+                id="day"
+                name="day"
+                placeholder="DD"
+                min="1"
+                max="31"
+              />
+              <p id="days-error" class="error-text">&nbsp;</p>
+            </div>
+            <div class="field-block">
+              <label for="month" id="month-title">MONTH</label>
+              <input
+                type="text"
+                id="month"
+                name="month"
+                placeholder="MM"
+                min="1"
+                max="12"
+              />
+              <p id="months-error" class="error-text">&nbsp;</p>
+            </div>
 
-          <div class="field-block">
-            <label for="year" id="year-title">YEAR</label>
-            <input
-              type="year"
-              id="year"
-              name="year"
-              placeholder="YYYY"
-              min="1"
-              max="10000"
-            />
-            <p id="years-error" class="error-text">&nbsp;</p>
+            <div class="field-block">
+              <label for="year" id="year-title">YEAR</label>
+              <input
+                type="text"
+                id="year"
+                name="year"
+                placeholder="YYYY"
+                min="1"
+                max="10000"
+              />
+              <p id="years-error" class="error-text">&nbsp;</p>
+            </div>
+            <div class="field-block right-space"></div>
           </div>
-          <div class="field-block"></div>
-        </div>
-        <div class="divider-container">
-          <div class="divider">
-            <hr />
-          </div>
+          <div class="divider-container">
+            <div class="divider">
+              <hr />
+            </div>
 
-          <div class="calc_btn">
-            <img
-              src="./assets/images/icon-arrow.svg"
-              alt="down arrow"
-              class="button-img"
-            />
+            <button class="calc_btn">
+              <img
+                src="./assets/images/icon-arrow.svg"
+                alt="down arrow"
+                class="button-img"
+              />
+            </button>
           </div>
-        </div>
-        <div class="output-wrapper">
-          <div class="output-block">
-            <p id="years" class="output numeric-output">--</p>
-            <p id="years-text" class="output">years</p>
-          </div>
+          <div class="output-wrapper">
+            <div class="output-block">
+              <p id="years" class="output numeric-output">--</p>
+              <p id="years-text" class="output">years</p>
+            </div>
 
-          <div class="output-block">
-            <p id="months" class="output numeric-output">--</p>
-            <p id="months-text" class="output">months</p>
-          </div>
-          <div class="output-block">
-            <p id="days" class="output numeric-output">--</p>
-            <p id="days-text" class="output">days</p>
+            <div class="output-block">
+              <p id="months" class="output numeric-output">--</p>
+              <p id="months-text" class="output">months</p>
+            </div>
+            <div class="output-block">
+              <p id="days" class="output numeric-output">--</p>
+              <p id="days-text" class="output">days</p>
+            </div>
           </div>
         </div>
       </div>

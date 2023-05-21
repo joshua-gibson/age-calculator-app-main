@@ -28,6 +28,9 @@
   --off-black: hsl(0, 0%, 8%);
 }
 
+
+
+
 .header-footer {
   font-size: 11px;
   text-align: center;
@@ -52,16 +55,21 @@ main {
   height: 100%;
 }
 
+.card-wrapper {
+  min-width: 370px;
+  padding: 10px;
+}
 .card {
   background-color: var(--white);
   border-radius: 20px 20px 100px 20px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   max-width: 500px;
-  padding: 1.5rem;
+
+  padding: 1.5rem 1rem;
 }
+
 
 input {
   width: 100%;
@@ -94,7 +102,7 @@ input:hover {
 .field-block {
   display: flex;
   flex-direction: column;
-  margin-right: 3.5rem;
+  margin-right: 12%;
   font-size: 11px;
   color: var(--smokey-grey);
 
@@ -157,12 +165,11 @@ margin: 20px 0;
 .calc_btn {
   position: absolute;
   background-color: var(--purple);
+  border: 1px solid var(--light-grey);
   border-radius: 100%;
   cursor: pointer;
   height: 60px;
   width: 60px;
-  display: flex;
-  justify-content: center;
   top: -21px;
   right: 0px;
 }
@@ -174,3 +181,26 @@ margin: 20px 0;
   width: 30px;
 }
 
+@media (max-width: 375px) {
+  .card {
+  
+
+      
+    }
+
+    .right-space {
+      background-color: black;
+      display: none;
+    }
+
+.divider-container {
+  margin: 20px 0;
+}
+
+    .calc_btn {
+
+      right: 45%;
+
+    }
+  }
+  
