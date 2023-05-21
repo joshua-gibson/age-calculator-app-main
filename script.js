@@ -70,7 +70,11 @@ function errorMsg(day, month, year) {
     yearMsg = "This field is required";
   }
   // error msg if the month is not valid or in the future
-  if (isNaN(parseInt(month)) || parseInt(month) + 1 <= 0) {
+  if (
+    isNaN(parseInt(month)) ||
+    parseInt(month) + 1 <= 0 ||
+    parseInt(month) + 1 > 12
+  ) {
     monthMsg = "Must be a valid month";
   }
   if (parseInt(year) === currYear && parseInt(month) > currMonth) {
@@ -84,7 +88,6 @@ function errorMsg(day, month, year) {
   //check the date is valid and not in the future
   if (
     isNaN(parseInt(day)) ||
-    !isValidDate(`${year}-${month}-${day}`) ||
     (monthMsg.length === 0 &&
       yearMsg.length === 0 &&
       (!providedDate instanceof Date || isNaN(providedDate)))
@@ -100,6 +103,11 @@ function errorMsg(day, month, year) {
   }
   if (day === "") {
     dayMsg = "This field is required";
+  }
+  if (!isValidDate(`${year}-${month}-${day}`)) {
+    dayMsg = "Must be a valid date";
+    monthMsg = " ";
+    yearMsg = " ";
   }
   return { yearMsg, monthMsg, dayMsg };
 }
