@@ -79,18 +79,15 @@ function errorMsg(day, month, year) {
   return errors;
 }
 
-function getDateDifferences(day, month, year) {
+const getDateDifferences = (day, month, year) => {
+  const currDate = new Date();
+  const currDay = currDate.getDate();
+  const currMonth = currDate.getMonth();
+  const currYear = currDate.getFullYear();
   const errors = errorMsg(day, month, year);
-
-  if (
-    errors.dayMsg.length > 0 ||
-    errors.monthMsg.length > 0 ||
-    errors.yearMsg.length > 0
-  ) {
+  if (Object.values(errors).some((msg) => msg?.length > 0)) {
     return {
-      yearError: errors.yearMsg,
-      monthError: errors.monthMsg,
-      dayError: errors.dayMsg,
+      ...errors,
       yearsSince: "--",
       yearsSinceText: "years",
       monthsSince: "--",
@@ -99,16 +96,9 @@ function getDateDifferences(day, month, year) {
       daysSinceText: "days",
     };
   }
-
   const inputDate = new Date(year, month, day, 0, 0, 0, 0);
-  const currentDate = new Date();
-  const currDay = currentDate.getDate();
-  const currMonth = currentDate.getMonth();
-  const currYear = currentDate.getYear() + 1900;
-  // how many years between dates
-  var yearsSince = currentDate.getFullYear() - inputDate.getFullYear();
-  //subtract years from current date
-  var removeYearssDate = new Date(
+  var yearsSince = currDate.getFullYear() - inputDate.getFullYear();
+  var removeYearsDate = new Date(
     currYear - yearsSince,
     currMonth,
     currDay,
@@ -117,16 +107,12 @@ function getDateDifferences(day, month, year) {
     0,
     0
   );
-
-  if (removeYearssDate < inputDate) {
-    removeYearssDate.setFullYear(removeYearssDate.getFullYear() + 1);
+  if (removeYearsDate < inputDate) {
+    removeYearsDate.setFullYear(removeYearsDate.getFullYear() + 1);
     yearsSince--;
   }
-
-  // how many months between dates
-  var monthsSince = monthDiff(inputDate, removeYearssDate);
-  //subtract months from current date
-  var removeMonthsDate = new Date(
+  var monthsSince = monthDiff(inputDate, removeYearsDate);
+  const removeMonthsDate = new Date(
     currYear - yearsSince,
     currMonth - monthsSince,
     currDay,
@@ -135,19 +121,13 @@ function getDateDifferences(day, month, year) {
     0,
     0
   );
-
   if (removeMonthsDate < inputDate) {
     removeMonthsDate.setMonth(removeMonthsDate.getMonth() + 1);
     monthsSince--;
   }
-
-  // how many days between dates
   const daysSince = daysDiff(inputDate, removeMonthsDate);
-
   return {
-    yearError: errors.yearMsg,
-    monthError: errors.monthMsg,
-    dayError: errors.dayMsg,
+    ...errors,
     yearsSince,
     yearsSinceText: yearsSince === 1 ? "year" : "years",
     monthsSince,
@@ -155,15 +135,16 @@ function getDateDifferences(day, month, year) {
     daysSince,
     daysSinceText: daysSince === 1 ? "day" : "days",
   };
-}
+};
 
 fetchBtn.addEventListener("click", () => {
   const day = document.getElementById("day").value;
   const month = parseInt(document.getElementById("month").value) - 1;
   const year = document.getElementById("year").value;
   const dateDifferences = getDateDifferences(day, month, year);
+  console.log(dateDifferences);
 
-  if (dateDifferences.dayError.length > 0) {
+  if (dateDifferences.dayMsg.length > 0) {
     document.getElementById("day-title").classList.add("red-text");
     document.getElementById("day").classList.add("red-border");
   } else {
@@ -171,7 +152,7 @@ fetchBtn.addEventListener("click", () => {
     document.getElementById("day").classList.remove("red-border");
   }
 
-  if (dateDifferences.monthError.length > 0) {
+  if (dateDifferences.monthMsg.length > 0) {
     document.getElementById("month-title").classList.add("red-text");
     document.getElementById("month").classList.add("red-border");
   } else {
@@ -179,7 +160,7 @@ fetchBtn.addEventListener("click", () => {
     document.getElementById("month").classList.remove("red-border");
   }
 
-  if (dateDifferences.yearError.length > 0) {
+  if (dateDifferences.yearMsg.length > 0) {
     document.getElementById("year-title").classList.add("red-text");
     document.getElementById("year").classList.add("red-border");
   } else {
@@ -188,11 +169,11 @@ fetchBtn.addEventListener("click", () => {
   }
 
   document.getElementById("years-error").innerHTML =
-    dateDifferences.yearError || `&nbsp;`;
+    dateDifferences.yearMsg || `&nbsp;`;
   document.getElementById("months-error").innerHTML =
-    dateDifferences.monthError || `&nbsp;`;
+    dateDifferences.monthMsg || `&nbsp;`;
   document.getElementById("days-error").innerHTML =
-    dateDifferences.dayError || `&nbsp;`;
+    dateDifferences.dayMsg || `&nbsp;`;
 
   document.getElementById("years").innerHTML = dateDifferences.yearsSince;
   document.getElementById("years-text").innerHTML =
