@@ -24,9 +24,10 @@ function errorMsg(day, month, year) {
   var monthMsg = "";
   var dayMsg = "";
   // error msg if the year is not valid or in the future
+
   if (
     isNaN(parseInt(year)) ||
-    parseInt(year) <= 0 ||
+    parseInt(year) < 100 ||
     parseInt(year) > currYear
   ) {
     yearMsg = "Please enter a valid year";
@@ -34,12 +35,18 @@ function errorMsg(day, month, year) {
   if (parseInt(year) > currYear) {
     yearMsg = "Must be in the past";
   }
+  if (year === "") {
+    yearMsg = "This field is required";
+  }
   // error msg if the month is not valid or in the future
   if (isNaN(parseInt(month)) || parseInt(month) + 1 <= 0) {
     monthMsg = "Please enter a valid month";
   }
   if (parseInt(year) === currYear && parseInt(month) > currMonth) {
     monthMsg = "Must be in the past";
+  }
+  if (month === "") {
+    monthMsg = "This field is required";
   }
   // combine the day, month and year into a date
   const providedDate = new Date(year, month, day, 0, 0, 0, 0);
@@ -61,7 +68,9 @@ function errorMsg(day, month, year) {
   ) {
     dayMsg = "Must be in the past";
   }
-
+  if (day === "") {
+    dayMsg = "This field is required";
+  }
   return { yearMsg, monthMsg, dayMsg };
 }
 
@@ -138,10 +147,30 @@ fetchBtn.addEventListener("click", () => {
   const year = document.getElementById("year").value;
   const dateDifferences = getDateDifferences(day, month, year);
 
-  document.getElementById("years-error").innerHTML = dateDifferences.yearError;
+  if (dateDifferences.dayError.length > 0) {
+    document.getElementById("day-title").classList.add("red-text");
+  } else {
+    document.getElementById("day-title").classList.remove("red-text");
+  }
+
+  if (dateDifferences.monthError.length > 0) {
+    document.getElementById("month-title").classList.add("red-text");
+  } else {
+    document.getElementById("month-title").classList.remove("red-text");
+  }
+
+  if (dateDifferences.yearError.length > 0) {
+    document.getElementById("year-title").classList.add("red-text");
+  } else {
+    document.getElementById("year-title").classList.remove("red-text");
+  }
+
+  document.getElementById("years-error").innerHTML =
+    dateDifferences.yearError || `&nbsp;`;
   document.getElementById("months-error").innerHTML =
-    dateDifferences.monthError;
-  document.getElementById("days-error").innerHTML = dateDifferences.dayError;
+    dateDifferences.monthError || `&nbsp;`;
+  document.getElementById("days-error").innerHTML =
+    dateDifferences.dayError || `&nbsp;`;
 
   document.getElementById("years").innerHTML = dateDifferences.yearsSince;
   document.getElementById("years-text").innerHTML =

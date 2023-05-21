@@ -21,17 +21,24 @@
       <div class="card">
         <div class="input-fields">
           <div class="field-block">
-            <p>DAY</p>
-            <input type="day" id="day" name="day" value="DD" min="1" max="31" />
+            <p id="day-title">DAY</p>
+            <input
+              type="day"
+              id="day"
+              name="day"
+              placeholder="DD"
+              min="1"
+              max="31"
+            />
             <p id="days-error" class="error-text">&nbsp;</p>
           </div>
           <div class="field-block">
-            <p>MONTH</p>
+            <p id="month-title">MONTH</p>
             <input
               type="month"
               id="month"
               name="month"
-              value="MM"
+              placeholder="MM"
               min="1"
               max="12"
             />
@@ -39,12 +46,12 @@
           </div>
 
           <div class="field-block">
-            <p>YEAR</p>
+            <p id="year-title">YEAR</p>
             <input
               type="year"
               id="year"
               name="year"
-              value="YYYY"
+              placeholder="YYYY"
               min="1"
               max="10000"
             />

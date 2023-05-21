@@ -35,7 +35,6 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: "Poppins-Regular", sans-serif;
-  font-size: 15px;
   background-color: var(--off-white);
   display: flex;
   flex-direction: column;
@@ -64,6 +63,8 @@ main {
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 2rem;
+  font-size: 12px;
+  font-weight: 700;
 }
 .field-block {
   display: flex;
@@ -80,7 +81,12 @@ main {
 }
 
 .error-text {
-  font-size: 12px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--light-red);
+}
+
+.red-text {
   color: var(--light-red);
 }
 
