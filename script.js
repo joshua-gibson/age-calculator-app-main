@@ -1,20 +1,16 @@
 const fetchBtn = document.querySelector(".calc_btn");
 var speed = 10;
 
-/* Call this function with a string containing the ID name to
- * the element containing the number you want to do a count animation on.*/
 function incEltNbr(id) {
-  var elt = document.getElementById(id);
-  var endNbr = Number(document.getElementById(id).innerHTML);
+  const elt = document.getElementById(id);
+  const endNbr = Number(document.getElementById(id).innerHTML);
   incNbrRec(0, endNbr, elt);
 }
 
-/*A recursive function to increase the number.*/
 function incNbrRec(i, endNbr, elt) {
   if (i <= endNbr) {
     elt.innerHTML = i;
     setTimeout(function () {
-      //Delay a bit before calling the function again.
       incNbrRec(i + 1, endNbr, elt);
     }, speed);
   }
@@ -126,9 +122,9 @@ function getDateDifferences(day, month, year) {
   const currMonth = currentDate.getMonth();
   const currYear = currentDate.getYear() + 1900;
   // how many years between dates
-  const yearsSince = currentDate.getFullYear() - inputDate.getFullYear();
+  var yearsSince = currentDate.getFullYear() - inputDate.getFullYear();
   //subtract years from current date
-  const removeYearssDate = new Date(
+  var removeYearssDate = new Date(
     currYear - yearsSince,
     currMonth,
     currDay,
@@ -137,18 +133,30 @@ function getDateDifferences(day, month, year) {
     0,
     0
   );
+
+  if (removeYearssDate < inputDate) {
+    removeYearssDate.setFullYear(removeYearssDate.getFullYear() + 1);
+    yearsSince--;
+  }
+
   // how many months between dates
-  const monthsSince = monthDiff(inputDate, removeYearssDate) + 1;
+  var monthsSince = monthDiff(inputDate, removeYearssDate) + 1;
   //subtract months from current date
-  const removeMonthsDate = new Date(
+  var removeMonthsDate = new Date(
     currYear - yearsSince,
-    currMonth + 1 - monthsSince,
+    currMonth - monthsSince,
     currDay,
     0,
     0,
     0,
     0
   );
+
+  if (removeMonthsDate < inputDate) {
+    removeMonthsDate.setMonth(removeMonthsDate.getMonth() + 1);
+    monthsSince--;
+  }
+
   // how many days between dates
   const daysSince = daysDiff(inputDate, removeMonthsDate);
 
