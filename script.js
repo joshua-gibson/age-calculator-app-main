@@ -30,7 +30,7 @@ function errorMsg(day, month, year) {
     parseInt(year) < 100 ||
     parseInt(year) > currYear
   ) {
-    yearMsg = "Please enter a valid year";
+    yearMsg = "Must be a valid year";
   }
   if (parseInt(year) > currYear) {
     yearMsg = "Must be in the past";
@@ -40,7 +40,7 @@ function errorMsg(day, month, year) {
   }
   // error msg if the month is not valid or in the future
   if (isNaN(parseInt(month)) || parseInt(month) + 1 <= 0) {
-    monthMsg = "Please enter a valid month";
+    monthMsg = "Must be a valid month";
   }
   if (parseInt(year) === currYear && parseInt(month) > currMonth) {
     monthMsg = "Must be in the past";
@@ -59,7 +59,7 @@ function errorMsg(day, month, year) {
       yearMsg.length === 0 &&
       (!providedDate instanceof Date || isNaN(providedDate)))
   ) {
-    dayMsg = "Please enter a valid day";
+    dayMsg = "Must be a valid day";
   }
   if (
     parseInt(year) === currYear &&
@@ -149,20 +149,26 @@ fetchBtn.addEventListener("click", () => {
 
   if (dateDifferences.dayError.length > 0) {
     document.getElementById("day-title").classList.add("red-text");
+    document.getElementById("day").classList.add("red-border");
   } else {
     document.getElementById("day-title").classList.remove("red-text");
+    document.getElementById("day").classList.remove("red-border");
   }
 
   if (dateDifferences.monthError.length > 0) {
     document.getElementById("month-title").classList.add("red-text");
+    document.getElementById("month").classList.add("red-border");
   } else {
     document.getElementById("month-title").classList.remove("red-text");
+    document.getElementById("month").classList.remove("red-border");
   }
 
   if (dateDifferences.yearError.length > 0) {
     document.getElementById("year-title").classList.add("red-text");
+    document.getElementById("year").classList.add("red-border");
   } else {
     document.getElementById("year-title").classList.remove("red-text");
+    document.getElementById("year").classList.remove("red-border");
   }
 
   document.getElementById("years-error").innerHTML =

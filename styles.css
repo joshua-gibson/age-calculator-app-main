@@ -58,10 +58,17 @@ main {
   width: 100%;
 }
 
+input {
+  width: 85%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+}
+
 .input-fields {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: start;
   padding-bottom: 2rem;
   font-size: 12px;
   font-weight: 700;
@@ -88,6 +95,9 @@ main {
 
 .red-text {
   color: var(--light-red);
+}
+.red-border {
+  border: 1px solid var(--light-red);
 }
 
 .numeric-output {
@@ -127,3 +137,4 @@ main {
 .calc_btn img {
   width: 25px;
 }
+
