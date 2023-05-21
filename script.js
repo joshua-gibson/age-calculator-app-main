@@ -1,5 +1,29 @@
 const fetchBtn = document.querySelector(".calc_btn");
+var speed = 10;
 
+/* Call this function with a string containing the ID name to
+ * the element containing the number you want to do a count animation on.*/
+function incEltNbr(id) {
+  var elt = document.getElementById(id);
+  var endNbr = Number(document.getElementById(id).innerHTML);
+  incNbrRec(0, endNbr, elt);
+}
+
+/*A recursive function to increase the number.*/
+function incNbrRec(i, endNbr, elt) {
+  if (i <= endNbr) {
+    elt.innerHTML = i;
+    setTimeout(function () {
+      //Delay a bit before calling the function again.
+      incNbrRec(i + 1, endNbr, elt);
+    }, speed);
+  }
+}
+function incNbr() {
+  incEltNbr("days");
+  incEltNbr("months");
+  incEltNbr("years");
+}
 function monthDiff(d1, d2) {
   var months;
   months = (d2.getFullYear() - d1.getFullYear()) * 12;
@@ -95,7 +119,7 @@ function getDateDifferences(day, month, year) {
     };
   }
 
-  const inputDate = new Date(day + "/" + month + "/" + year);
+  const inputDate = new Date(month + "/" + day + "/" + year);
 
   const currentDate = new Date();
   const currDay = currentDate.getDate();
@@ -187,4 +211,6 @@ fetchBtn.addEventListener("click", () => {
   document.getElementById("days").innerHTML = dateDifferences.daysSince;
   document.getElementById("days-text").innerHTML =
     dateDifferences.daysSinceText;
+
+  incNbr();
 });
