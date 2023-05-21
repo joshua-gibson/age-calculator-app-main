@@ -46,70 +46,37 @@ function daysDiff(date1, date2) {
 }
 
 function errorMsg(day, month, year) {
-  // create a date object for the current date
-  const currentDate = new Date();
-  const currDay = currentDate.getDate();
-  const currMonth = currentDate.getMonth();
-  const currYear = currentDate.getYear() + 1900;
-  var yearMsg = "";
-  var monthMsg = "";
-  var dayMsg = "";
-  // error msg if the year is not valid or in the future
-
-  if (
-    isNaN(parseInt(year)) ||
-    parseInt(year) < 100 ||
-    parseInt(year) > currYear
-  ) {
-    yearMsg = "Must be a valid year";
-  }
-  if (parseInt(year) > currYear) {
-    yearMsg = "Must be in the past";
-  }
-  if (year === "") {
-    yearMsg = "This field is required";
-  }
-  // error msg if the month is not valid or in the future
-  if (
-    isNaN(parseInt(month)) ||
-    parseInt(month) + 1 <= 0 ||
-    parseInt(month) + 1 > 12
-  ) {
-    monthMsg = "Must be a valid month";
-  }
-  if (parseInt(year) === currYear && parseInt(month) > currMonth) {
-    monthMsg = "Must be in the past";
-  }
-  if (month === "") {
-    monthMsg = "This field is required";
-  }
-  // combine the day, month and year into a date
-  const providedDate = new Date(year, month, day, 0, 0, 0, 0);
-  //check the date is valid and not in the future
-  if (
-    isNaN(parseInt(day)) ||
-    (monthMsg.length === 0 &&
-      yearMsg.length === 0 &&
-      (!providedDate instanceof Date || isNaN(providedDate)))
-  ) {
-    dayMsg = "Must be a valid day";
-  }
-  if (
-    parseInt(year) === currYear &&
-    parseInt(month) === currMonth &&
-    parseInt(day) > currDay
-  ) {
-    dayMsg = "Must be in the past";
-  }
-  if (day === "") {
-    dayMsg = "This field is required";
-  }
-  if (!isValidDate(`${year}-${month}-${day}`)) {
-    dayMsg = "Must be a valid date";
-    monthMsg = " ";
-    yearMsg = " ";
-  }
-  return { yearMsg, monthMsg, dayMsg };
+  const currDate = new Date();
+  const currDay = currDate.getDate();
+  const currMonth = currDate.getMonth();
+  const currYear = currDate.getFullYear();
+  const errors = {
+    yearMsg: !isNaN(parseInt(year))
+      ? parseInt(year) < 100 || parseInt(year) > currYear
+        ? "Must be a valid year"
+        : parseInt(year) > currYear
+        ? "Must be in the past"
+        : ""
+      : "This field is required",
+    monthMsg: !isNaN(parseInt(month))
+      ? parseInt(month) < 0 || parseInt(month) > 11
+        ? "Must be a valid month"
+        : parseInt(year) === currYear && parseInt(month) > currMonth
+        ? "Must be in the past"
+        : ""
+      : "This field is required",
+    dayMsg: !isNaN(parseInt(day))
+      ? isNaN(parseInt(day)) ||
+        (parseInt(year) === currYear &&
+          parseInt(month) === currMonth &&
+          parseInt(day) > currDay)
+        ? "Must be in the past"
+        : !isValidDate(`${year}-${month}-${day}`)
+        ? "Must be a valid date"
+        : ""
+      : "This field is required",
+  };
+  return errors;
 }
 
 function getDateDifferences(day, month, year) {
