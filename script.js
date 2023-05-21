@@ -20,6 +20,17 @@ function incNbr() {
   incEltNbr("months");
   incEltNbr("years");
 }
+
+function isValidDate(dateString) {
+  const [year, month, day] = dateString.split("-").map(Number);
+  const date = new Date(year, month, day);
+  return (
+    date.getFullYear() === year &&
+    date.getMonth() === month &&
+    date.getDate() === day
+  );
+}
+
 function monthDiff(d1, d2) {
   var months;
   months = (d2.getFullYear() - d1.getFullYear()) * 12;
@@ -73,8 +84,7 @@ function errorMsg(day, month, year) {
   //check the date is valid and not in the future
   if (
     isNaN(parseInt(day)) ||
-    parseInt(day) < 1 ||
-    parseInt(day) > 31 ||
+    !isValidDate(`${year}-${month}-${day}`) ||
     (monthMsg.length === 0 &&
       yearMsg.length === 0 &&
       (!providedDate instanceof Date || isNaN(providedDate)))
@@ -115,8 +125,7 @@ function getDateDifferences(day, month, year) {
     };
   }
 
-  const inputDate = new Date(month + "/" + day + "/" + year);
-
+  const inputDate = new Date(year, month, day, 0, 0, 0, 0);
   const currentDate = new Date();
   const currDay = currentDate.getDate();
   const currMonth = currentDate.getMonth();
@@ -140,7 +149,7 @@ function getDateDifferences(day, month, year) {
   }
 
   // how many months between dates
-  var monthsSince = monthDiff(inputDate, removeYearssDate) + 1;
+  var monthsSince = monthDiff(inputDate, removeYearssDate);
   //subtract months from current date
   var removeMonthsDate = new Date(
     currYear - yearsSince,
@@ -175,7 +184,7 @@ function getDateDifferences(day, month, year) {
 
 fetchBtn.addEventListener("click", () => {
   const day = document.getElementById("day").value;
-  const month = document.getElementById("month").value;
+  const month = parseInt(document.getElementById("month").value) - 1;
   const year = document.getElementById("year").value;
   const dateDifferences = getDateDifferences(day, month, year);
 
