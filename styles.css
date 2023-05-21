@@ -1,111 +1,123 @@
-
-
-
 @font-face {
-  font-family: 'Poppins-Regular';
-  src: url('./assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-family: "Poppins-Regular";
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Poppins-ExtraBoldItalic';
-  src: url('./assets/fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
+  font-family: "Poppins-ExtraBoldItalic";
+  src: url("./assets/fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");
   font-weight: bolder;
   font-style: italic;
 }
 
 :root {
-    --purple: hsl(259, 100%, 65%);
-    --light-red: hsl(0, 100%, 67%);
-    --white: hsl(0, 0%, 100%);
-    --off-white: hsl(0, 0%, 94%);
-    --light-grey: hsl(0, 0%, 86%);
-    --smokey-grey: hsl(0, 1%, 44%);
-    --off-black: hsl(0, 0%, 8%);
-  }
-  
-  .header-footer { font-size: 11px; text-align: center; min-height:20px;}
-  .header-footer a { color: hsl(228, 45%, 44%); }
+  --purple: hsl(259, 100%, 65%);
+  --light-red: hsl(0, 100%, 67%);
+  --white: hsl(0, 0%, 100%);
+  --off-white: hsl(0, 0%, 94%);
+  --light-grey: hsl(0, 0%, 86%);
+  --smokey-grey: hsl(0, 1%, 44%);
+  --off-black: hsl(0, 0%, 8%);
+}
 
-  body {
-    min-height: 100vh;
-    margin: 0;
-    font-family: "Poppins-Regular", sans-serif;
-    font-size: 15px;
-    background-color: var(--off-white);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  }
-  main {
-    width: 100%;
-    height: 100%;
-  }
+.header-footer {
+  font-size: 11px;
+  text-align: center;
+  min-height: 20px;
+}
+.header-footer a {
+  color: hsl(228, 45%, 44%);
+}
 
-  .card {
-    background-color: var(--white);
-    border-radius: 20px 20px 100px 20px ;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    max-width: 500px;
-    padding: 1.5rem;
-    width: 100%;
-  }
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 15px;
+  background-color: var(--off-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+main {
+  width: 100%;
+  height: 100%;
+}
 
-  .input-fields {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-padding-bottom: 2rem;
-  }
-  .field-block {
-    display: flex;
-    flex-direction: column;
-  }
+.card {
+  background-color: var(--white);
+  border-radius: 20px 20px 100px 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 1.5rem;
+  width: 100%;
+}
 
-  .field-block p {
-margin: 0;
-  }
+.input-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+.field-block {
+  display: flex;
+  flex-direction: column;
+}
 
-  .output-block {
-    display: flex;
-    flex-direction: row;
+.field-block p {
+  margin: 0;
+}
 
-  }
+.output-block {
+  display: flex;
+  flex-direction: row;
+}
 
-  .error-text {
-    font-size: 12px;
-    color: var(--light-red);
-  }
+.error-text {
+  font-size: 12px;
+  color: var(--light-red);
+}
 
-  .numeric-output {
-    color: var(--purple);
-    padding-right: 0.5rem;
+.numeric-output {
+  color: var(--purple);
+  padding-right: 0.5rem;
+}
+.output {
+  font-size: 32px;
+  font-family: "Poppins-ExtraBoldItalic", sans-serif;
+  font-weight: 800;
+  margin: 0;
+}
 
-  }
-  .output {
-    font-size: 32px;
-    font-family: "Poppins-ExtraBoldItalic", sans-serif;
-    font-weight: 800;
-    margin: 0;
-  }
+.divider hr {
+  height: 1px;
+  border: 0;
+  background: var(--light-grey);
+}
 
-  .calc_btn {
-    background-color: var(--purple);
-    border-radius: 100%;
-    cursor: pointer;
-    height: 75px;
-    width: 75px;
-    display: flex;
-    justify-content: center;
+.divider-container {
+  position: relative;
+}
 
-  }
+.calc_btn {
+  position: absolute;
+  background-color: var(--purple);
+  border-radius: 100%;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  top: -17px;
+  right: 0px;
+}
 
-  .calc_btn img {
-    width: 50px;
-
+.calc_btn img {
+  width: 25px;
 }
