@@ -4,6 +4,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 
 @font-face {
   font-family: "Poppins-ExtraBoldItalic";
@@ -55,13 +61,17 @@ main {
   margin: 0 auto;
   max-width: 500px;
   padding: 1.5rem;
-  width: 100%;
 }
 
 input {
-  width: 85%;
-  height: 50px;
+  width: 100%;
+  height: 30px;
   border-radius: 5px;
+  font-size: 21px;
+  font-weight: 700;
+  padding: 10px;
+  margin: 2px 0;
+  font-family: "Poppins-Bold", sans-serif;
   border: 1px solid var(--light-grey);
 }
 
@@ -69,13 +79,14 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: start;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   font-size: 12px;
   font-weight: 700;
 }
 .field-block {
   display: flex;
   flex-direction: column;
+  margin-right: 3.5rem;
 }
 
 .field-block p {
@@ -88,8 +99,10 @@ input {
 }
 
 .error-text {
+  width: 140%;
   font-weight: 300;
   font-style: italic;
+  font-size: 10px;
   color: var(--light-red);
 }
 
@@ -104,9 +117,14 @@ input {
   color: var(--purple);
   padding-right: 0.5rem;
 }
+.output-wrapper {
+margin: 20px 0;
+}
+
 .output {
-  font-size: 32px;
-  font-family: "Poppins-ExtraBoldItalic", sans-serif;
+  font-size: 62px;
+  line-height: 4rem;
+    font-family: "Poppins-ExtraBoldItalic", sans-serif;
   font-weight: 800;
   margin: 0;
 }
@@ -126,15 +144,15 @@ input {
   background-color: var(--purple);
   border-radius: 100%;
   cursor: pointer;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   display: flex;
   justify-content: center;
-  top: -17px;
+  top: -21px;
   right: 0px;
 }
 
 .calc_btn img {
-  width: 25px;
+  width: 30px;
 }
 
