@@ -1,24 +1,24 @@
 const fetchBtn = document.querySelector(".calc_btn");
-var speed = 10;
 
-function incEltNbr(id) {
+function incrementElementNumber(id) {
   const elt = document.getElementById(id);
   const endNbr = Number(document.getElementById(id).innerHTML);
-  incNbrRec(0, endNbr, elt);
+  incrementNumberRecursively(0, endNbr, elt);
 }
 
-function incNbrRec(i, endNbr, elt) {
+function incrementNumberRecursively(i, endNbr, elt) {
+  const speed = 10;
   if (i <= endNbr) {
     elt.innerHTML = i;
     setTimeout(function () {
-      incNbrRec(i + 1, endNbr, elt);
+      incrementNumberRecursively(i + 1, endNbr, elt);
     }, speed);
   }
 }
-function incNbr() {
-  incEltNbr("days");
-  incEltNbr("months");
-  incEltNbr("years");
+function incrementNumber() {
+  incrementElementNumber("days");
+  incrementElementNumber("months");
+  incrementElementNumber("years");
 }
 
 function isValidDate(dateString) {
@@ -204,5 +204,5 @@ fetchBtn.addEventListener("click", () => {
   document.getElementById("days-text").innerHTML =
     dateDifferences.daysSinceText;
 
-  incNbr();
+  incrementNumber();
 });
