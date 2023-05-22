@@ -120,6 +120,9 @@ input:hover {
 .red-text {
   color: var(--light-red);
 }
+
+
+
 .red-border {
   border: 1px solid var(--light-red);
 }
@@ -127,6 +130,9 @@ input:hover {
 .numeric-output {
   color: var(--purple);
   padding-right: 0.5rem;
+}
+.blur {
+  text-shadow: 0 -8px 5px rgba(185, 153, 255,0.5);
 }
 .output-wrapper {
 margin: 20px 0;
@@ -160,6 +166,8 @@ margin: 20px 0;
   width: 60px;
   top: -21px;
   right: 0px;
+  transition-property: right;
+  transition-duration: 0.5s;
 }
 
 .calc_btn:hover {
@@ -182,6 +190,8 @@ margin: 20px 0;
 
   .calc_btn {
     right: 45%;
+    transition-property: right;
+  transition-duration: 0.5s;
   }
 }
   

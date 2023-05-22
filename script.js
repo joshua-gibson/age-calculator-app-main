@@ -13,6 +13,12 @@ function incrementNumberRecursively(i, endNbr, elt) {
     setTimeout(function () {
       incrementNumberRecursively(i + 1, endNbr, elt);
     }, speed);
+    if (i === 0) {
+      elt.classList.add("blur");
+    }
+    if (i === endNbr) {
+      elt.classList.remove("blur");
+    }
   }
 }
 function incrementNumber() {
